@@ -18,6 +18,7 @@ function displayMessage(msgText, msgType) {
         panel.parentNode.removeChild(panel)
        
     }
+
     if (msgType === 'warning') {
         msg.style.backgroundImage = 'url(warning.png)';
         panel.style.backgroundColor = 'red';
@@ -27,9 +28,8 @@ function displayMessage(msgText, msgType) {
     } else {
         msg.style.paddingLeft = '20px';
     }
-
-
 }
+
 function msgpro1() {
    return prompt('leave a msg :')
 }  
@@ -37,7 +37,7 @@ function msgpro1() {
 function msgpro2() {
    let a = prompt('warning or Chat :')
    return a.toLowerCase().toString();
- }  
+}  
 
 const btn = document.querySelector('button');
 btn.onclick =  function () {
@@ -55,3 +55,26 @@ btn.onclick = displayMessage();
 */
 
 // btn.addEventListener('click', displayMessage);  // 2.way of calling function
+
+
+function bas() {
+    let searchName = input.value.toLowerCase();
+    /*
+     We store the value entered into the text input in a variable called searchName, 
+     before then emptying the text input and focusing it again, ready for the next search.  
+     */
+    input.value = '';
+    input.focus();
+    for (let i = 0; i < contact.length; i++) {
+        let splitContact = contact[i].split(':');
+        if (splitContact[0].toLowerCase() === searchName) {
+            para.textContent = `${splitContact[0]}'s number is ${splitContact[1]}. ID number is ${i+1}`;
+            console.log(i);
+            break;
+        } else {
+            para.textContent = 'Contact not found.'
+        }
+        
+    }
+   
+}
